@@ -1,0 +1,32 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #171717;
+  color: #e3e3e3;
+}
+
+main {
+  border: 3px solid #e3e3e3;
+  width: 60vw;
+  height: 70vh;
+  margin: 100px auto;
+  border-radius: 8px;
+}
+
+.library {
+  padding: 15px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.library div {
+  color: #e8cd82;
+  padding: 10px;
+  background-color: #282828;
+  border-radius: 15px;
+}
