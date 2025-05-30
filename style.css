@@ -4,18 +4,24 @@
   box-sizing: border-box;
 }
 
-
 body {
+  margin: 0;
+  padding: 0;
   background-color: #171717;
   color: #e3e3e3;
   font-family: "Young Serif", serif;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
 }
 
 main {
   border: 3px solid #e3e3e3;
   width: 60vw;
   height: 80vh;
-  margin: 80px auto;
+  margin: 40px auto;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -26,7 +32,7 @@ main {
   padding: 15px;
   display: grid;
   gap: 15px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .library div {
@@ -34,6 +40,7 @@ main {
   padding: 10px;
   background-color: #282828;
   border-radius: 15px;
+  text-align: center;
 }
 
 .add-book-btn {
@@ -46,6 +53,75 @@ main {
   color: #044904
 }
 
+.add-book-btn:hover {
+  background-color: #296629;
+  color: #c49e23;
+}
+
 .add-book-btn:active {
   transform: translateY(2px)
+}
+
+.new-book-dialog {
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.new-book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.new-book-form fieldset {
+  border: none;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.new-book-dialog {
+  background-color: #e3e3e3;
+}
+
+.new-book-dialog::backdrop {
+  backdrop-filter: blur(1px);
+}
+
+.new-book-dialog input {
+  background-color: #e3e3e3;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.book-delete-btn,
+.change-read-status-btn {
+  display: inline-block;
+  border: none;
+  color: #e3e3e3;
+  font-family: inherit;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.book-delete-btn {
+  background-color: #ac3818;
+}
+
+.change-read-status-btn {
+  background-color: #228b22;
+}
+
+.book-btn-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 16px;
 }
