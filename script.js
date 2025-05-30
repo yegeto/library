@@ -1,4 +1,7 @@
 const library = document.querySelector(".library");
+const addBookBtn = document.querySelector(".add-book-btn");
+const addBookDialog = document.querySelector(".new-book-dialog");
+const addBookForm = document.querySelector(".new-book-form");
 
 const myLibrary = [
   {
@@ -29,6 +32,7 @@ function addBookToLibrary(title, author, pages, isRead) {
 addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", 720, true);
 
 function displayLibrary(myLibrary) {
+  library.innerHTML = "";
   myLibrary.map((book) => {
     const bookWrapper = document.createElement("div");
     const bookTitle = document.createElement("p");
@@ -40,7 +44,7 @@ function displayLibrary(myLibrary) {
 
     bookTitle.textContent = `${book.title}`;
     bookAuthor.textContent = `${book.author}`;
-    bookPages.textContent = `${book.pages} pages`;
+    bookPages.textContent = `${book.pages} Pages`;
     bookRead.textContent = `${book.isRead ? "Read" : "Not Read"}`;
 
     bookWrapper.appendChild(bookTitle);
@@ -51,5 +55,21 @@ function displayLibrary(myLibrary) {
     library.appendChild(bookWrapper);
   });
 }
+
+addBookBtn.addEventListener("click", () => {
+  addBookDialog.showModal();
+});
+
+addBookForm.addEventListener("submit", () => {
+  const formData = new FormData(addBookForm);
+  const title = formData.get("book-title");
+  const author = formData.get("book-author");
+  const pages = formData.get("book-pages");
+  const isRead = formData.get("book-is-read") === "on";
+
+  addBookToLibrary(title, author, pages, isRead);
+  displayLibrary(myLibrary);
+  addBookForm.reset();
+});
 
 displayLibrary(myLibrary);

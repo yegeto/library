@@ -14,9 +14,12 @@ body {
 main {
   border: 3px solid #e3e3e3;
   width: 60vw;
-  height: 70vh;
-  margin: 100px auto;
+  height: 80vh;
+  margin: 80px auto;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .library {
@@ -27,8 +30,22 @@ main {
 }
 
 .library div {
-  color: #e8cd82;
+  color: #e7d087;
   padding: 10px;
   background-color: #282828;
   border-radius: 15px;
+}
+
+.add-book-btn {
+  background-color: #e7d087;
+  margin: 5px;
+  padding: 13px;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  color: #044904
+}
+
+.add-book-btn:active {
+  transform: translateY(2px)
 }
