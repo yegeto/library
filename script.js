@@ -26,4 +26,30 @@ function addBookToLibrary(title, author, pages, isRead) {
   myLibrary.push(newBook);
 }
 
-addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", 720, false);
+addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", 720, true);
+
+function displayLibrary(myLibrary) {
+  myLibrary.map((book) => {
+    const bookWrapper = document.createElement("div");
+    const bookTitle = document.createElement("p");
+    const bookAuthor = document.createElement("p");
+    const bookPages = document.createElement("p");
+    const bookRead = document.createElement("p");
+
+    bookWrapper.setAttribute("id", `${book.id}`);
+
+    bookTitle.textContent = `${book.title}`;
+    bookAuthor.textContent = `${book.author}`;
+    bookPages.textContent = `${book.pages} pages`;
+    bookRead.textContent = `${book.isRead ? "Read" : "Not Read"}`;
+
+    bookWrapper.appendChild(bookTitle);
+    bookWrapper.appendChild(bookAuthor);
+    bookWrapper.appendChild(bookPages);
+    bookWrapper.appendChild(bookRead);
+
+    library.appendChild(bookWrapper);
+  });
+}
+
+displayLibrary(myLibrary);
