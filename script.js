@@ -4,7 +4,7 @@ const addBookDialog = document.querySelector(".new-book-dialog");
 const addBookForm = document.querySelector(".new-book-form");
 const closeBtn = document.querySelector("#close-button");
 
-const myLibrary = [
+let myLibrary = [
   {
     title: "The Hobbit",
     author: "J.R.R. Tolkien",
@@ -37,7 +37,7 @@ function addBookToLibrary(title, author, pages, isRead) {
   myLibrary.push(newBook);
 }
 
-function displayLibrary(myLibrary) {
+function displayLibrary() {
   library.innerHTML = "";
   myLibrary.map((book) => {
     const bookWrapper = document.createElement("div");
@@ -67,13 +67,11 @@ function displayLibrary(myLibrary) {
     changeReadStatusBtn.addEventListener("click", () => {
       const book = myLibrary.find((book) => book.id === currentBookId);
       book.isRead = !book.isRead;
-      displayLibrary(myLibrary);
+      displayLibrary();
     });
     deleteBookBtn.addEventListener("click", () => {
-      const updatedLibrary = myLibrary.filter(
-        (book) => book.id !== currentBookId
-      );
-      displayLibrary(updatedLibrary);
+      myLibrary = myLibrary.filter((book) => book.id !== currentBookId);
+      displayLibrary();
     });
 
     bookWrapper.appendChild(bookTitle);
@@ -100,7 +98,7 @@ addBookForm.addEventListener("submit", () => {
   const isRead = formData.get("book-is-read") === "on";
 
   addBookToLibrary(title, author, pages, isRead);
-  displayLibrary(myLibrary);
+  displayLibrary();
   addBookForm.reset();
 });
 
@@ -108,4 +106,4 @@ closeBtn.addEventListener("click", () => {
   addBookDialog.close();
 });
 
-displayLibrary(myLibrary);
+displayLibrary();
